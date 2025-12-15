@@ -29,6 +29,10 @@ export default function EsgLanding() {
                 <ValueProposition t={t} />
                 <HowItWorks t={t} />
                 <DashboardKPI t={t} />
+
+                {/* STEP 2.1: area ottieni licenza */}
+                <LicenseSection t={t} />
+
                 <Packages t={t} />
                 <ContactSection t={t} />
                 <Footer t={t} />
@@ -75,10 +79,10 @@ function TopBar({ lang, onLang, t }) {
                     </button>
 
                     <a
-                        href="#contatti"
+                        href="#licenza"
                         className="ml-2 px-5 py-2 rounded-xl bg-cyan-400 text-black font-semibold hover:bg-cyan-300 transition"
                     >
-                        {t("esg.nav.cta", "Book Strategic Demo")}
+                        {t("esg.nav.cta", "Get a License")}
                     </a>
                 </div>
             </div>
@@ -108,10 +112,10 @@ function Hero({ t }) {
 
                 <div className="flex flex-col md:flex-row gap-4 justify-center">
                     <a
-                        href="#contatti"
+                        href="#licenza"
                         className="px-8 py-4 bg-cyan-400 text-black text-lg font-semibold rounded-xl hover:bg-cyan-300 transition shadow-[0_0_25px_rgba(34,211,238,0.25)]"
                     >
-                        {t("esg.hero.btn_call", "Book a Strategic Demo")}
+                        {t("esg.hero.btn_call", "Get a License")}
                     </a>
                     <a
                         href="#pacchetti"
@@ -133,18 +137,32 @@ function Hero({ t }) {
 }
 
 function KpiPill({ text }) {
-    return (
-        <div className="px-4 py-3 rounded-xl bg-gray-900/40 border border-gray-800">
-            {text}
-        </div>
-    );
+    return <div className="px-4 py-3 rounded-xl bg-gray-900/40 border border-gray-800">{text}</div>;
 }
 
 function ValueProposition({ t }) {
     const items = [
-        { title: t("esg.value.audit_title", "Audit-ready by design"), text: t("esg.value.audit_text", "From data ingestion to evidence, everything is structured for auditors and compliance.") },
-        { title: t("esg.value.ai_title", "AI Compliance Advisor"), text: t("esg.value.ai_text", "Explain ESRS, suggest actions, generate reports, and reduce operational friction.") },
-        { title: t("esg.value.cert_title", "Certification layer"), text: t("esg.value.cert_text", "A scoring and certification system you can defend, not just a dashboard screenshot.") },
+        {
+            title: t("esg.value.audit_title", "Audit-ready by design"),
+            text: t(
+                "esg.value.audit_text",
+                "From data ingestion to evidence, everything is structured for auditors and compliance."
+            ),
+        },
+        {
+            title: t("esg.value.ai_title", "AI Compliance Advisor"),
+            text: t(
+                "esg.value.ai_text",
+                "Explain ESRS, suggest actions, generate reports, and reduce operational friction."
+            ),
+        },
+        {
+            title: t("esg.value.cert_title", "Certification layer"),
+            text: t(
+                "esg.value.cert_text",
+                "A scoring and certification system you can defend, not just a dashboard screenshot."
+            ),
+        },
     ];
 
     return (
@@ -166,16 +184,27 @@ function ValueProposition({ t }) {
 
 function HowItWorks({ t }) {
     const steps = [
-        { title: t("esg.how.step1_title", "Baseline & Scope"), text: t("esg.how.step1_text", "We map entities, data sources and ESRS scope in a structured onboarding.") },
-        { title: t("esg.how.step2_title", "Data → Evidence"), text: t("esg.how.step2_text", "KPIs, policies, logs and artifacts are captured with traceability.") },
-        { title: t("esg.how.step3_title", "Score & Reports"), text: t("esg.how.step3_text", "Real-time scoring, reporting packs and certification outputs for stakeholders.") },
+        {
+            title: t("esg.how.step1_title", "Baseline & Scope"),
+            text: t("esg.how.step1_text", "We map entities, data sources and ESRS scope in a structured onboarding."),
+        },
+        {
+            title: t("esg.how.step2_title", "Data → Evidence"),
+            text: t("esg.how.step2_text", "KPIs, policies, logs and artifacts are captured with traceability."),
+        },
+        {
+            title: t("esg.how.step3_title", "Score & Reports"),
+            text: t("esg.how.step3_text", "Real-time scoring, reporting packs and certification outputs for stakeholders."),
+        },
     ];
 
     return (
         <section className="w-full py-20 md:py-24 px-6 md:px-16 bg-gray-950 border-y border-gray-900">
             <div className="max-w-5xl mx-auto text-center mb-14">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("esg.how.title", "How it works")}</h2>
-                <p className="text-gray-300">{t("esg.how.subtitle", "A pragmatic path from compliance chaos to an enterprise ESG operating system.")}</p>
+                <p className="text-gray-300">
+                    {t("esg.how.subtitle", "A pragmatic path from compliance chaos to an enterprise ESG operating system.")}
+                </p>
             </div>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -193,16 +222,27 @@ function HowItWorks({ t }) {
 
 function DashboardKPI({ t }) {
     const sections = [
-        { title: t("esg.dashboard.env_title", "Environmental"), text: t("esg.dashboard.env_text", "Energy, emissions, waste, water, targets and evidence trails.") },
-        { title: t("esg.dashboard.social_title", "Social"), text: t("esg.dashboard.social_text", "Workforce, training, safety, inclusion metrics, incidents and remediation.") },
-        { title: t("esg.dashboard.gov_title", "Governance"), text: t("esg.dashboard.gov_text", "Policies, controls, compliance logs, risk flags, audit readiness status.") },
+        {
+            title: t("esg.dashboard.env_title", "Environmental"),
+            text: t("esg.dashboard.env_text", "Energy, emissions, waste, water, targets and evidence trails."),
+        },
+        {
+            title: t("esg.dashboard.social_title", "Social"),
+            text: t("esg.dashboard.social_text", "Workforce, training, safety, inclusion metrics, incidents and remediation."),
+        },
+        {
+            title: t("esg.dashboard.gov_title", "Governance"),
+            text: t("esg.dashboard.gov_text", "Policies, controls, compliance logs, risk flags, audit readiness status."),
+        },
     ];
 
     return (
         <section className="w-full py-20 md:py-24 px-6 md:px-16 bg-black">
             <div className="max-w-5xl mx-auto text-center mb-14">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("esg.dashboard.title", "Dashboard & KPIs")}</h2>
-                <p className="text-gray-300">{t("esg.dashboard.subtitle", "Three pillars, one engine: scoring, traceability and enterprise-grade governance.")}</p>
+                <p className="text-gray-300">
+                    {t("esg.dashboard.subtitle", "Three pillars, one engine: scoring, traceability and enterprise-grade governance.")}
+                </p>
             </div>
 
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -212,6 +252,106 @@ function DashboardKPI({ t }) {
                         <p className="text-gray-300">{s.text}</p>
                     </div>
                 ))}
+            </div>
+        </section>
+    );
+}
+
+/* ------------------------------------------------------------
+   STEP 2.1 – OTTIENI LICENZA
+------------------------------------------------------------ */
+function LicenseSection({ t }) {
+    const cards = [
+        {
+            title: t("esg.license.enterprise_title", "Enterprise License"),
+            subtitle: t("esg.license.enterprise_sub", "For structured companies and groups"),
+            bullets: [
+                t("esg.license.b1", "Multi-entity governance & audit trail"),
+                t("esg.license.b2", "ESRS/CSRD reporting packs"),
+                t("esg.license.b3", "Role-based access, evidence & logs"),
+            ],
+            cta: t("esg.license.cta_enterprise", "Request enterprise access"),
+            highlight: false,
+        },
+        {
+            title: t("esg.license.bank_title", "Bank & Finance"),
+            subtitle: t("esg.license.bank_sub", "Banks, insurance, holdings, regulated chains"),
+            bullets: [
+                t("esg.license.b4", "Controls, risk flags, audit readiness status"),
+                t("esg.license.b5", "Supplier/supply-chain ESG mapping"),
+                t("esg.license.b6", "Compliance-grade security posture"),
+            ],
+            cta: t("esg.license.cta_bank", "Book reserved demo"),
+            highlight: true,
+        },
+        {
+            title: t("esg.license.partner_title", "Partner Program"),
+            subtitle: t("esg.license.partner_sub", "Consulting firms, auditors, certification bodies"),
+            bullets: [
+                t("esg.license.b7", "White-label & partner dashboard"),
+                t("esg.license.b8", "Multi-tenant onboarding workflows"),
+                t("esg.license.b9", "Revenue model on licenses"),
+            ],
+            cta: t("esg.license.cta_partner", "Become a partner"),
+            highlight: false,
+        },
+    ];
+
+    return (
+        <section
+            id="licenza"
+            className="w-full py-20 md:py-24 px-6 md:px-16 bg-gradient-to-b from-black to-gray-950 border-y border-gray-900"
+        >
+            <div className="max-w-6xl mx-auto text-center mb-14">
+                <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("esg.license.title", "Get a license")}</h2>
+                <p className="text-gray-300 max-w-4xl mx-auto">
+                    {t(
+                        "esg.license.subtitle",
+                        "No public price list. Licenses are issued based on scope, regulatory exposure and supply-chain complexity."
+                    )}
+                </p>
+            </div>
+
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+                {cards.map((c, idx) => (
+                    <div
+                        key={idx}
+                        className={
+                            "p-8 rounded-2xl bg-black border transition " +
+                            (c.highlight
+                                ? "border-cyan-400 shadow-[0_0_30px_rgba(34,211,238,0.25)]"
+                                : "border-gray-800 hover:border-cyan-400")
+                        }
+                    >
+                        <h3 className={"text-2xl font-bold mb-1 " + (c.highlight ? "text-cyan-300" : "")}>{c.title}</h3>
+                        <p className="text-sm text-gray-400 mb-6">{c.subtitle}</p>
+
+                        <ul className="text-gray-300 space-y-2 mb-8 text-sm">
+                            {c.bullets.map((b, i) => (
+                                <li key={i}>• {b}</li>
+                            ))}
+                        </ul>
+
+                        <a
+                            href="#contatti"
+                            className={
+                                "block px-6 py-3 rounded-lg text-center font-semibold transition " +
+                                (c.highlight
+                                    ? "bg-cyan-400 text-black hover:bg-cyan-300"
+                                    : "border border-gray-700 text-white hover:border-cyan-400 hover:text-cyan-300")
+                            }
+                        >
+                            {c.cta}
+                        </a>
+                    </div>
+                ))}
+            </div>
+
+            <div className="max-w-6xl mx-auto mt-10 text-center text-sm text-gray-400">
+                {t(
+                    "esg.license.note",
+                    "Response time: 24h. We route you to the correct path (Enterprise / Bank / Partner) after an initial qualification."
+                )}
             </div>
         </section>
     );
@@ -247,7 +387,10 @@ function Packages({ t }) {
             <div className="max-w-5xl mx-auto text-center mb-14">
                 <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("esg.packages.title", "Packages (no public pricing)")}</h2>
                 <p className="text-gray-300">
-                    {t("esg.packages.subtitle", "No public price list. Enterprise licenses are tailored to your size, scope and regulatory exposure.")}
+                    {t(
+                        "esg.packages.subtitle",
+                        "No public price list. Enterprise licenses are tailored to your size, scope and regulatory exposure."
+                    )}
                 </p>
             </div>
 
@@ -301,12 +444,6 @@ function ContactSection({ t }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setStatus("loading");
-
-        // Se non hai ancora configurato Supabase env su Cloudflare, non rompiamo la UX:
-        if (!supabase) {
-            setStatus("error");
-            return;
-        }
 
         const { error } = await supabase.from("esg_leads").insert([
             {
